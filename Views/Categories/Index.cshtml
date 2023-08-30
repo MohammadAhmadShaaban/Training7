@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplication35.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.TotalProfit</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryBuyPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryBuyPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CatogryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CatogryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CatogryID })
+        </td>
+    </tr>
+}
+
+</table>
